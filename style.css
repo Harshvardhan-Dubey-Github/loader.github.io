@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    animation: changeBgcolor 4s steps(1) infinite;
+}
+@keyframes changeBgcolor {
+    0% {
+background: rgb(212, 188, 78)
+    }
+    25% {
+background: rgb(233, 99, 99)
+    }
+    50% {
+background: rgb(168, 168, 161)
+    }
+    75% {
+background: rgb(172, 98, 214)
+    }
+   100% {
+background: rgb(113, 223, 109)
+    }
+}
+.loader {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #000;
+    animation: rotate 1s linear infinite;
+}
+.loader div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    animation: animate 1s linear infinite;
+}
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    50% , 100% {
+        transform: rotate(180deg);
+    }
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(90deg);
+    }
+    50%,100% {
+transform: rotate(0deg);
+    }
+}
+.loader div:nth-child(1) {
+    top: -100%;
+    left: -2px;
+    transform-origin: bottom right;
+}
+.loader div:nth-child(1)::before{
+    background: #ff0;
+}
+.loader div:nth-child(2) {
+    right: -100%;
+    top: -2px;
+    transform-origin: bottom left;
+}
+.loader div:nth-child(2)::before{
+    background: rgb(218, 30, 224);
+}
+
+.loader div:nth-child(3){
+    bottom: -100%;
+    left: 2px;
+    transform-origin: top left;
+}
+.loader div:nth-child(3)::before{
+    background: rgb(11, 236, 11);
+}
+.loader div:nth-child(4){
+    left: -100%;
+    top: 2px;
+    transform-origin: top right;
+}
+.loader div:nth-child(4)::before{
+    background: rgb(3, 226, 226);
+}
+.loader::before,
+.loader div::before{
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: #fff;
+}
